@@ -3,6 +3,9 @@ import dotenv from 'dotenv';
 import path from 'path';
 import requireLogin from './middleware'
 import LoginRouter from "./routes/loginRoutes"
+import RegisterRouter from "./routes/registerRoute"
+import bodyParser from 'body-parser'
+
 
 dotenv.config();
 
@@ -13,12 +16,15 @@ app.set('view engine', 'pug')
 app.set("views", path.join(__dirname, "..", "views"))
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "..", "public")))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // Routes
 
 // chapter6
 
 app.use('/login', LoginRouter)
+app.use('/register', RegisterRouter)
+
 
 
 
