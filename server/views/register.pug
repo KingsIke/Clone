@@ -3,7 +3,7 @@ extends layouts/login-layout.pug
 block content
     .loginContainer
         h1 Register
-        form#registerForm(method="post", onsubmit= "event.preventDefault(); validateForm()")
+        form#registerForm(method="post", onsubmit= "validateForm()")
 
             p.errorMessage #{errorMessage}
 
@@ -19,16 +19,16 @@ block content
 
     script. 
         const passwordField = document.getElementById("password")
-        const passwordConfirmField = document.getElementById'('passwordConf')
+        const passwordConfirmField = document.getElementById('passwordConf');
         const form  = document.getElementById('registerForm')
         console.log(passwordConfirmField.value, passwordField.value, )
 
         function validateForm() {
-            if(passwordField.value!== passwordConfirmField.value ) {
-                form.submit()
-            }else{
-                alert('Mismatched Password')
-                return false; 
+            //- if(passwordField.value !== passwordConfirmField.value ) {
+            //-     alert('Mismatched Password')
+            //-     return false; 
+            //- }else{
+            //-     form.submit()
 
-            }
+            //- }
         }

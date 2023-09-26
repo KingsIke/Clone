@@ -5,6 +5,9 @@ import requireLogin from './middleware'
 import LoginRouter from "./routes/loginRoutes"
 import RegisterRouter from "./routes/registerRoute"
 import bodyParser from 'body-parser'
+import { Database } from './database/mongo';
+
+new Database()
 
 
 dotenv.config();
