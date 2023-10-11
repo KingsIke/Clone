@@ -2,8 +2,8 @@ import express, { Router, NextFunction, Request, Response, response } from 'expr
 import { registerGet, registerCreate } from '../controller/registerController'
 const router = Router()
 
-router.get('/', registerGet)
+router.get('/register', registerGet)
 
-router.post('/', registerCreate)
+router.post('/register', registerCreate)
 
 export default router
