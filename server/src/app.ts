@@ -8,6 +8,7 @@ import bodyParser from 'body-parser';
 import { Database } from './database/mongo';
 import session, { Session } from 'express-session';
 import { userInstance } from './schema/userSchema';
+import logOutRouter from './routes/logOutRoutes';
 
 new Database();
 
@@ -39,6 +40,8 @@ app.use(session({
 // Routes
 app.use('/', LoginRouter);
 app.use('/', RegisterRouter);
+app.use('/', logOutRouter);
+
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
     const payload = {

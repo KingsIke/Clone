@@ -56,3 +56,12 @@ export const logIn = async (req: Request, res: Response, next: NextFunction) => 
 export const getLogIn = (req: Request, res: Response, next: NextFunction) => {
     res.status(200).render('login')
 }
+
+export const logOut = (req: Request, res: Response, next: NextFunction) => {
+    // res.status(200).render('login')
+    if (req.session) {
+        req.session.destroy(() => {
+            res.redirect('/login')
+        })
+    }
+}
